@@ -67,21 +67,21 @@ The following free public APIs were integrated using **Axios** (without using fe
 
 2. Navigate to the project directory:
 
-cd <basic-expo-app>
+   cd <basic-expo-app>
 
 
-Install dependencies:
+3. Install dependencies:
 
-npm install
-
-
-Start the Expo development server:
-
-npx expo start
+   npm install
 
 
-Run the app:
+4. Start the Expo development server:
 
-Press a to run on Android Emulator
+   npx expo start
 
-OR scan the QR code using Expo Go app on a physical device
+
+5. Run the app:
+
+   Press a to run on Android Emulator
+   
+   OR scan the QR code using Expo Go app on a physical device
