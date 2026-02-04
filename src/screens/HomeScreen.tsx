@@ -28,6 +28,7 @@ export default function HomeScreen({ navigation }: any) {
       <Text style={styles.subHeader}>Welcome, Prapthi</Text>
 
       <View style={styles.grid}>
+        <Card title="Login" onPress={() => navigation.replace("Login")} />
         <Card title="Profile" onPress={() => navigation.navigate("Profile")} />
         <Card title="Settings" onPress={() => {}} />
         <Card title="About" onPress={() => {}} />
