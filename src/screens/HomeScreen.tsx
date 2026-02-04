@@ -1,17 +1,50 @@
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Image } from "react-native";
+import { useState } from "react";
+import { getRandomActivity, getRandomDog } from "../services/freeApis";
 
 export default function HomeScreen({ navigation }: any) {
+  const [activity, setActivity] = useState<string>("");
+  const [dogImage, setDogImage] = useState<string>("");
+
+  const loadApis = async () => {
+    try {
+      const activityData = await getRandomActivity();
+      const dogData = await getRandomDog();
+      const loadApis = async () => {
+  console.log("Load APIs clicked");
+};
+
+
+      setActivity(activityData.activity);
+      setDogImage(dogData.message);
+    } catch (error) {
+      console.log("API Error:", error);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <Text style={styles.header}>MyApp</Text>
-      <Text style={styles.subHeader}>Welcome, User</Text>
+      <Text style={styles.subHeader}>Welcome, Prapthi</Text>
 
       <View style={styles.grid}>
         <Card title="Profile" onPress={() => navigation.navigate("Profile")} />
         <Card title="Settings" onPress={() => {}} />
         <Card title="About" onPress={() => {}} />
         <Card title="Logout" onPress={() => navigation.replace("Login")} />
+        <Card title="Surprise Me" onPress={loadApis} />
       </View>
+
+      {/* API OUTPUT */}
+      {activity !== "" && (
+        <Text style={styles.activityText}>
+          Activity: {activity}
+        </Text>
+      )}
+
+      {dogImage !== "" && (
+        <Image source={{ uri: dogImage }} style={styles.dogImage} />
+      )}
     </View>
   );
 }
@@ -23,6 +56,7 @@ function Card({ title, onPress }: any) {
     </TouchableOpacity>
   );
 }
+
 
 const styles = StyleSheet.create({
   container: {
@@ -62,4 +96,17 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontWeight: "600",
   },
+  activityText: {
+  marginTop: 20,
+  fontSize: 16,
+  textAlign: "center",
+  color: "#111827",
+},
+dogImage: {
+  width: 200,
+  height: 200,
+  alignSelf: "center",
+  marginTop: 15,
+  borderRadius: 12,
+},
 });
