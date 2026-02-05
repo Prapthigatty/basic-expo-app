@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "basicAppClean",
-    "slug": "basicAppClean",
+    "name": "BasicApp",
+    "slug": "basicapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -12,10 +12,28 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
+    "plugins": [
+      [
+        "expo-notifications"
+      ]
+    ],
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE"
+      ],
+      "package": "com.prapthi.basicapp",
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./google-services.json",
+      "config": {
+        "googleSignIn": {
+          "apiKey": "AIzaSyAH-e3wO39tcI8XZ1CP5pdzsh73Hv3bZSQ"
+        }
+      },
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
@@ -24,6 +42,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "7da2c6e7-cf2d-46fb-845e-5d01c82ddc18"
+      }
+    },
+    "owner": "prapthi"
   }
 }
